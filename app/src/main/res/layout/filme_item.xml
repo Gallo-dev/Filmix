@@ -13,14 +13,12 @@
 
         <ImageView
             android:id="@+id/imagem_item_filme"
-            android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/o_justiceiro"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
 </com.google.android.material.card.MaterialCardView>

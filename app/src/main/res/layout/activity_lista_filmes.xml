@@ -12,12 +12,12 @@
         android:id="@+id/titulo_lista_filmes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_medium"
         android:layout_margin="16dp"
-        android:textSize="24sp"
+        android:fontFamily="@font/roboto_medium"
         android:gravity="center"
-        android:text="Filmix"
+        android:text="Home Filmix"
         android:textColor="@color/white"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,45 +27,130 @@
         android:id="@+id/pesquisa_filme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/titulo_lista_filmes"
-        android:padding="4dp"
         android:layout_margin="16dp"
-        android:elevation="10dp"
         android:background="@drawable/search_background"
+        android:elevation="10dp"
+        android:iconifiedByDefault="false"
+        android:padding="4dp"
         android:queryHint="Buscar filme"
-        android:iconifiedByDefault="false"/>
+        app:layout_constraintTop_toBottomOf="@id/titulo_lista_filmes" />
 
     <TextView
         android:id="@+id/os_dez_melhores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/pesquisa_filme"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20sp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Os Dez Melhores"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pesquisa_filme" />
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/os_dez_melhores"
-        android:fillViewport="true"
-        android:orientation="horizontal">
+        tools:listitem="@layout/filme_item">
 
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <TextView
+        android:id="@+id/assitindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Assistindo"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+
+    <TextView
+        android:id="@+id/marcacao_assitindo"
+        android:layout_width="85dp"
+        android:layout_height="4dp"
+        android:background="@color/backgrounSearch"
+        app:layout_constraintEnd_toEndOf="@id/assitindo"
+        app:layout_constraintStart_toStartOf="@id/assitindo"
+        app:layout_constraintTop_toBottomOf="@id/assitindo" />
+
+    <TextView
+        android:id="@+id/em_breve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Em Breve"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/assitindo"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+
+
+    <TextView
+        android:id="@+id/melhores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Melhores"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/em_breve"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+
+
+    <TextView
+        android:id="@+id/populares"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Populares"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/melhores"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/marcacao_assitindo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_horizontal"
+            android:id="@+id/recyclerView_coluna"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBaseline_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/filme_item"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layout_constraintHeight_default="wrap"
+            tools:listitem="@layout/filme_item">
 
-    </ScrollView>
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
