@@ -51,4 +51,7 @@ dependencies {
 
     // dependências do lottie animações
     implementation("com.airbnb.android:lottie:6.3.0")
+    // dependências do glide para carregar imagens
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 }

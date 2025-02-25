@@ -4,9 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import br.com.gallodev.filmix.databinding.ActivitySphashBinding
+import br.com.gallodev.filmix.ui.activity.ListaFilmesActivity
 
 class ActivitySphash : AppCompatActivity() {
 
@@ -16,12 +15,15 @@ class ActivitySphash : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySphashBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-        setContentView(binding.root)
 
+        setContentView(binding.root)
+        setupSplash()
+    }
+    private fun setupSplash() {
         binding.animacaoTelaSplash.postDelayed({
-            val animacao = Intent(this, MainActivity::class.java)
-        startActivity(animacao)
+            val animacao = Intent(this, ListaFilmesActivity::class.java)
+            startActivity(animacao)
             finish()
-        },4000)
+        }, 4000)
     }
 }
