@@ -1,22 +1,24 @@
-package br.com.gallodev.filmix.ui.recyclerview.adapter
+package br.com.gallodev.filmix.ui.presentation.listaFlimes
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gallodev.filmix.R
-import br.com.gallodev.filmix.ui.model.Filme
+import br.com.gallodev.filmix.ui.data.api.Film
+import br.com.gallodev.filmix.ui.data.model.Filme
 import com.bumptech.glide.Glide
 
 class ListaDezMelhoresAdapter(
 
-    private val filmes: List<Filme>
+    private var dezMelhores: List<Film>
 
 ) : RecyclerView.Adapter<ListaDezMelhoresAdapter.FilmesViewHolder>() {
 
     class FilmesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val filmesImageView: ImageView = itemView.findViewById(R.id.imagem_item_filme)
+        val dezMelhoresImageView: ImageView = itemView.findViewById(R.id.imagem_item_filme)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmesViewHolder {
@@ -26,14 +28,20 @@ class ListaDezMelhoresAdapter(
     }
 
     override fun onBindViewHolder(holder: FilmesViewHolder, position: Int) {
-        val currentMovie = filmes[position]
+        val currentMovie = dezMelhores[position]
         Glide.with(holder.itemView.context)
-            .load(currentMovie.imagemUrl)
-            .into(holder.filmesImageView)
+            .load(currentMovie.imageUrl)
+            .into(holder.dezMelhoresImageView)
 
     }
 
-    override fun getItemCount(): Int = filmes.size
+    override fun getItemCount(): Int = dezMelhores.size
+
+    fun update(filmes: List<Film>){
+        Log.i("ListaDezMelhoresAdapter", "Filmes encontrados: ${filmes.size}")
+        this.dezMelhores = filmes
+        notifyDataSetChanged()
+    }
 }
 
 

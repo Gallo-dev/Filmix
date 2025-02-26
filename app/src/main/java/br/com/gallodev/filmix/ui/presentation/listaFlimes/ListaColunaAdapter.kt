@@ -1,17 +1,19 @@
-package br.com.gallodev.filmix.ui.recyclerview.adapter
+package br.com.gallodev.filmix.ui.presentation.listaFlimes
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gallodev.filmix.R
-import br.com.gallodev.filmix.ui.model.Filme
+import br.com.gallodev.filmix.ui.data.api.Film
+import br.com.gallodev.filmix.ui.data.model.Filme
 import com.bumptech.glide.Glide
 
 class ListaColunaAdapter(
 
-    private val filmesEmColuna: List<Filme>
+    private var filmesEmColuna: List<Film>
 
 ) : RecyclerView.Adapter<ListaColunaAdapter.FilmesEmColunaViewHolder>() {
 
@@ -24,14 +26,20 @@ class ListaColunaAdapter(
         return FilmesEmColunaViewHolder(filmeView)
     }
 
-    override fun onBindViewHolder(holder: ListaColunaAdapter.FilmesEmColunaViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FilmesEmColunaViewHolder, position: Int) {
         val currentMovie = filmesEmColuna[position]
         Glide.with(holder.itemView.context)
-            .load(currentMovie.imagemUrl)
+            .load(currentMovie.imageUrl)
             .into(holder.filmesEmColunaImageView)
     }
 
     override fun getItemCount(): Int = filmesEmColuna.size
+
+    fun update(filmes: List<Film>){
+        Log.i("ListaColunaAdapter", "Filmes encontrados: ${filmes.size}")
+        this.filmesEmColuna = filmes
+        notifyDataSetChanged()
+    }
 
 }
 

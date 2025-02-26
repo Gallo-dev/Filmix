@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Filmix"
         tools:targetApi="31">
         <activity
-            android:name=".ActivitySphash"
+            android:name=".ui.presentation.splashScreen.ActivitySphash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.ListaFilmesActivity"
+            android:name=".ui.presentation.listaFlimes.ListaFilmesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
