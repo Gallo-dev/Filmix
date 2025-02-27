@@ -7,10 +7,10 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface FilmService {
-    @GET("movie/top_rated")
+    @GET("movie/{category}")
     fun listaFilmesPorCategorias(
-        @Query("api_key") apiKey: String,
-        @Query("languege") language: String,
-        @Query("categorias") categoria: String,
+        @Path("category") categoria: String, // Categoria dinâmica (ex.: "now_playing", "upcoming", "top_rated", "popular")
+        @Query("api_key") apiKey: String, // Chave de API necessária
+        @Query("language") language: String, // Idioma dos resultados, ex.: "pt-BR"
     ): Call<ResponseFilm>
 }

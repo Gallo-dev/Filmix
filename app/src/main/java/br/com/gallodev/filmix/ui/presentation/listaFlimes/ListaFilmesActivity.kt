@@ -18,12 +18,11 @@ class ListaFilmesActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityListaFilmesBinding
     private lateinit var viewModel: ListaFilmViewModel
+
     private val adapterColumn by lazy {
-        Log.i("ListaFilmesActivity", "AdapterColumn criado")
         ListaColunaAdapter(emptyList())
     }
     private val adapterHorizontal by lazy {
-        Log.i("ListaFilmesActivity", "AdapterHorizontal criado")
         ListaDezMelhoresAdapter(emptyList())
     }
 
@@ -37,14 +36,11 @@ class ListaFilmesActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-
         viewModel = ViewModelProvider(this)[ListaFilmViewModel::class.java]
 
         configClickCategory()
 
         viewModel.buscaFilmePorCategoria(Categoria.ASSISTIDOS)
-        Log.i("ListaFilmesActivity", "buscaFilmePorCategoria chamado")
-
 
     }
     override fun onResume() {

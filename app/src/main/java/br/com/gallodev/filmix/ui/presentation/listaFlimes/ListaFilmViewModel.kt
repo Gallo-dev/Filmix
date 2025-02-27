@@ -31,18 +31,16 @@ class ListaFilmViewModel :ViewModel() {
     // funcao para buscar filmes por categoria
     fun buscaFilmePorCategoria(categoria: Categoria){
         Log.i("ListaFilmesViewModel", "Buscando filmes por categoria: ${categoria.descricao}")
-        val call = filmService.listaFilmesPorCategorias("b893de681882461ea6ffc92edc5a3dfd","pt-BR",categoria.path)
+        val call = filmService.listaFilmesPorCategorias(categoria.path,"b893de681882461ea6ffc92edc5a3dfd","pt-BR")
 
         // callback para buscar os filmes
         call.enqueue(object : Callback<ResponseFilm>{
             override fun onResponse(call: Call<ResponseFilm>, response: Response<ResponseFilm>) {
                 Log.i("ListaFilmesViewModel", "Resposta recebida: ${response.code()}")
                 if (response.isSuccessful){
-                    val responseFilm = response.body()
-                    responseFilm?.let {
-                        Log.i("ListaFilmesViewModel", "Filmes encontrados: ${it.films.size}")
-                            movie.value = it.films
-                            tenBest.value = it.films.take(10)
+                    response.body()?.let {responseFilm ->
+                        movie.value =responseFilm.films
+                        tenBest.value = responseFilm.films.take(10)
                     }
                 }else{
                     Log.e("ListaFilmViewModel", "Erro ao buscar filmes: ${response.message()}")
