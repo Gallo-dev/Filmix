@@ -4,8 +4,8 @@
     <string name="search">Buscar filme</string>
     <string name="home">Home Filmix</string>
     <string name="tenBest">Os dez melhores</string>
-    <string name="Watching">Assistindo</string>
-    <string name="upcoming">Em breve</string>
+    <string name="Watching">Assistidos</string>
+    <string name="upcoming">Lançamento</string>
     <string name="best">Melhores</string>
     <string name="popular">Populares</string>
 </resources>

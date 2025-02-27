@@ -48,6 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pesquisa_filme" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_horizontal"
         android:layout_width="match_parent"
@@ -61,82 +62,89 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-
-    <TextView
-        android:id="@+id/assitindo"
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:id="@+id/horizontal_scrowView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/Watching"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+        app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal">
 
-    <TextView
-        android:id="@+id/marcacao_assitindo"
-        android:layout_width="85dp"
-        android:layout_height="4dp"
-        android:background="@color/backgrounSearch"
-        app:layout_constraintEnd_toEndOf="@id/assitindo"
-        app:layout_constraintStart_toStartOf="@id/assitindo"
-        app:layout_constraintTop_toBottomOf="@id/assitindo" />
+        <LinearLayout
+            android:id="@+id/linearLayout_categoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/em_breve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/upcoming"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/assitindo"
-        app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+            <TextView
+                android:id="@+id/assistidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/Watching"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
 
-
-    <TextView
-        android:id="@+id/melhores"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/best"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/em_breve"
-        app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+            <TextView
+                android:id="@+id/lancamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/upcoming"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
-    <TextView
-        android:id="@+id/populares"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/popular"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/melhores"
-        app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+            <TextView
+                android:id="@+id/melhores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/best"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/lancamento"
+                app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+
+
+            <TextView
+                android:id="@+id/populares"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/popular"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/melhores"
+                app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/marcacao_assitindo"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_scrowView">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_coluna"
@@ -145,8 +153,8 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBaseline_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHeight_default="wrap"
+            app:layout_constraintStart_toStartOf="parent"
             tools:listitem="@layout/filme_item">
 
         </androidx.recyclerview.widget.RecyclerView>

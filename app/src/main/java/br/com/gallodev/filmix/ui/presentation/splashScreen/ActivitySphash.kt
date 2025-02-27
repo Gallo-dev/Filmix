@@ -14,7 +14,8 @@ class ActivitySphash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySphashBinding.inflate(layoutInflater)
-        enableEdgeToEdge()
+        //enableEdgeToEdge()
+        supportActionBar?.hide()
 
         setContentView(binding.root)
         setupSplash()
