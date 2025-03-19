@@ -1,11 +1,25 @@
 <resources>
     <string name="app_name">Filmix</string>
 
-    <string name="search">Buscar filme</string>
     <string name="home">Home Filmix</string>
-    <string name="tenBest">Os dez melhores</string>
-    <string name="Watching">Assistidos</string>
-    <string name="upcoming">Lançamento</string>
-    <string name="best">Melhores</string>
-    <string name="popular">Populares</string>
+    <string name="tenBest">Top 10</string>
+    <string name="Watching">Now playing</string>
+    <string name="upcoming">Update</string>
+    <string name="best">Up Rated</string>
+    <string name="popular">Popular</string>
+    <string name="search">Search film</string>
+    <string name="details">Detail</string>>
+    <string name="descripition">Description of the film</string>>
+    <string name="ic_home">Home</string>
+    <string name="ic_search">Search</string>
+    <string name="ic_list">List</string>
+
+    <string name="year">2025</string>
+    <string name="time">148 Minutes</string>
+    <string name="gener">Action</string>
+
+    <string name="about">Sinopse</string>
+    <string name="review">Reviews</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="cast">Cast </string>
 </resources>

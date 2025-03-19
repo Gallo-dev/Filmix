@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Filmix"
         tools:targetApi="31">
         <activity
+            android:name=".ui.presentation.DetailsFilm.DetailsFilmActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.presentation.FilmDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.presentation.searchFilms.SearchListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.presentation.splashScreen.ActivitySphash"
             android:exported="true">
             <intent-filter>
@@ -24,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.presentation.listaFlimes.ListaFilmesActivity"
+            android:name=".ui.presentation.listFlims.ListaFilmesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

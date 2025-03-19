@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -48,6 +49,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation (libs.androidx.appcompat.v161)
 
     // dependências do lottie animações
     implementation("com.airbnb.android:lottie:6.3.0")
@@ -66,6 +68,11 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
+    // Material Design para tablayout
+    implementation ("com.google.android.material:material:1.8.0")
+    // dependencia para o viewpager2
+    implementation ("androidx.viewpager2:viewpager2:1.1.0")
 
 
 }

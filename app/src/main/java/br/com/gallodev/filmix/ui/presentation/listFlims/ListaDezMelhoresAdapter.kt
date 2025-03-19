@@ -1,4 +1,4 @@
-package br.com.gallodev.filmix.ui.presentation.listaFlimes
+package br.com.gallodev.filmix.ui.presentation.listFlims
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gallodev.filmix.R
 import br.com.gallodev.filmix.ui.data.api.Film
-import br.com.gallodev.filmix.ui.data.model.Filme
 import com.bumptech.glide.Glide
 
 class ListaDezMelhoresAdapter(

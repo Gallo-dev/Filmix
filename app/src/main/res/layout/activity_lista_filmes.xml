@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,10 +13,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundApp"
-    tools:context=".ui.presentation.listaFlimes.ListaFilmesActivity">
+    tools:context=".ui.presentation.listFlims.ListaFilmesActivity">
 
     <TextView
-        android:id="@+id/titulo_lista_filmes"
+        android:id="@+id/title_list_films"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -23,20 +30,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SearchView
-        android:id="@+id/pesquisa_filme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/search_background"
-        android:elevation="10dp"
-        android:iconifiedByDefault="false"
-        android:padding="4dp"
-        android:queryHint="@string/search"
-        app:layout_constraintTop_toBottomOf="@id/titulo_lista_filmes" />
-
     <TextView
-        android:id="@+id/os_dez_melhores"
+        android:id="@+id/ten_best_films"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -46,7 +41,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pesquisa_filme" />
+        app:layout_constraintTop_toBottomOf="@id/title_list_films" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -57,7 +52,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/os_dez_melhores"
+        app:layout_constraintTop_toBottomOf="@id/ten_best_films"
         tools:listitem="@layout/filme_item">
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -69,12 +64,12 @@
         app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal">
 
         <LinearLayout
-            android:id="@+id/linearLayout_categoria"
+            android:id="@+id/linearLayout_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/assistidos"
+                android:id="@+id/now_playing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -89,10 +84,10 @@
                 app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
 
             <TextView
-                android:id="@+id/lancamento"
+                android:id="@+id/update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="16dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/roboto_medium"
@@ -103,10 +98,10 @@
 
 
             <TextView
-                android:id="@+id/melhores"
+                android:id="@+id/the_bests"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/best"
@@ -114,23 +109,24 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/lancamento"
+                app:layout_constraintStart_toEndOf="@id/update"
                 app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
 
 
             <TextView
-                android:id="@+id/populares"
+                android:id="@+id/popular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/popular"
                 android:layout_weight="1"
                 android:textColor="@color/white"
+                android:layout_marginEnd="16dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/melhores"
+                app:layout_constraintStart_toEndOf="@id/the_bests"
                 app:layout_constraintTop_toBottomOf="@id/recyclerView_horizontal" />
 
         </LinearLayout>
@@ -161,4 +157,80 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/backgroundApp"
+        app:layout_constraintBottom_toTopOf="@id/home_search_list">
+
+        <ImageView
+            android:id="@+id/ic_home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_home"
+            android:layout_weight="1"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/ic_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_search"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/ic_bookMark_list_border"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_bookmark_border"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/home_search_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/backgroundApp">
+
+        <TextView
+            android:id="@+id/home"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+           android:gravity="center"
+             />
+
+        <TextView
+            android:id="@+id/search"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="search"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/list"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="List"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:gravity="center" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

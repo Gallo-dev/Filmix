@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundApp">#242A32</color>
     <color name="backgrounSearch">#67686D</color>
+    <color name="grey">#5C5A5A</color>
 </resources>
