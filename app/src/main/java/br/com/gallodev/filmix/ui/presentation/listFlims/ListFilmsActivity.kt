@@ -9,33 +9,33 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gallodev.filmix.R
-import br.com.gallodev.filmix.databinding.ActivityListaFilmesBinding
+import br.com.gallodev.filmix.databinding.ActivityListFilmsBinding
 import br.com.gallodev.filmix.ui.data.api.Category
 import br.com.gallodev.filmix.ui.presentation.DetailsFilm.DetailsFilmActivity
 import br.com.gallodev.filmix.ui.presentation.searchFilms.SearchListActivity
 
-class ListaFilmesActivity : AppCompatActivity() {
+class ListFilmsActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityListaFilmesBinding
-    private lateinit var viewModel: ListaFilmViewModel
+    private lateinit var binding: ActivityListFilmsBinding
+    private lateinit var viewModel: ListFilmViewModel
 
     private val adapterColumn by lazy {
-        ListaColunaAdapter(emptyList())
+        ListColumnAdapter(emptyList())
     }
     private val adapterHorizontal by lazy {
-        ListaDezMelhoresAdapter(emptyList())
+        ListTenBestAdapter(emptyList())
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityListaFilmesBinding.inflate(layoutInflater)
+        binding = ActivityListFilmsBinding.inflate(layoutInflater)
         //enableEdgeToEdge()
         supportActionBar?.hide()
         setContentView(binding.root)
 
         // Configuração do ViewModel
-        viewModel = ViewModelProvider(this)[ListaFilmViewModel::class.java]
+        viewModel = ViewModelProvider(this)[ListFilmViewModel::class.java]
 
         // Configuração de apresentação da tela de inicial
         viewModel.buscaFilmePorCategoria(Category.ASSISTIDOS)
@@ -94,7 +94,7 @@ class ListaFilmesActivity : AppCompatActivity() {
     private fun configGoHome() {
         binding.icHome.setOnClickListener {
             val intent =
-                Intent(this, ListaFilmesActivity::class.java) // Navega para a tela de pesquisa
+                Intent(this, ListFilmsActivity::class.java) // Navega para a tela de pesquisa
             startActivity(intent)
         }
     }

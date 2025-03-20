@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.presentation.listFlims.ListaFilmesActivity"
+            android:name=".ui.presentation.listFlims.ListFilmsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

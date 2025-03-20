@@ -1,4 +1,4 @@
-package br.com.gallodev.filmix.ui.presentation.DetailsFilm
+package br.com.gallodev.filmix.ui.presentation.DetailsFilm.Cast
 
 import android.os.Bundle
 import android.view.LayoutInflater

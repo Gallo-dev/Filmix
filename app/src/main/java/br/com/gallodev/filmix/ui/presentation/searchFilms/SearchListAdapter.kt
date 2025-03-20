@@ -22,7 +22,7 @@ class SearchListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchListViewHolder {
-        val filmeView = LayoutInflater.from(parent.context).inflate(R.layout.filme_item, parent, false)
+        val filmeView = LayoutInflater.from(parent.context).inflate(R.layout.film_item, parent, false)
         return SearchListViewHolder(filmeView)
     }
 

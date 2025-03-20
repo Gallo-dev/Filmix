@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.gallodev.filmix.databinding.ActivitySphashBinding
-import br.com.gallodev.filmix.ui.presentation.listFlims.ListaFilmesActivity
+import br.com.gallodev.filmix.ui.presentation.listFlims.ListFilmsActivity
 
 class ActivitySphash : AppCompatActivity() {
 
@@ -21,7 +21,7 @@ class ActivitySphash : AppCompatActivity() {
     }
     private fun setupSplash() {
         binding.animacaoTelaSplash.postDelayed({
-            val animacao = Intent(this, ListaFilmesActivity::class.java)
+            val animacao = Intent(this, ListFilmsActivity::class.java)
             startActivity(animacao)
             finish()
         }, 4000)

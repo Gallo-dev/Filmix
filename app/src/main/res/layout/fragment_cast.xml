@@ -8,7 +8,7 @@
     android:orientation="horizontal"
     android:background="@color/backgroundApp"
     android:padding="8dp"
-    tools:context=".ui.presentation.DetailsFilm.CastFragment">
+    tools:context=".ui.presentation.DetailsFilm.Cast.CastFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cast_recycler_view"

@@ -4,6 +4,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import br.com.gallodev.filmix.ui.data.api.MovieDetailResponse
+import br.com.gallodev.filmix.ui.presentation.DetailsFilm.About.AboutFragment
+import br.com.gallodev.filmix.ui.presentation.DetailsFilm.Cast.CastFragment
+import br.com.gallodev.filmix.ui.presentation.DetailsFilm.Review.ReviewFragment
 
 class DetailsPagerAdapter(
     fragmentActivity: FragmentActivity,

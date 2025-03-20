@@ -11,6 +11,7 @@ data class MovieDetailResponse(
     @SerializedName("title") val title: String,
     @SerializedName("overview") val overview: String,
     @SerializedName("poster_path") val poster: String,
+    @SerializedName("backdrop_path") val backdrop: String,
     @SerializedName("runtime") val runtime: Int, // Tempo de duração em minutos
     @SerializedName("genres") val genres: List<Genre>, // Gêneros do filme
     @SerializedName("vote_average") val voteAverage: Double?, // Média de votos do filme
@@ -49,6 +50,7 @@ data class MovieDetailResponse(
     ) : Parcelable
 
     val imageUrl get() = "https://image.tmdb.org/t/p/w500/$poster"
+    val imageBackdropUrl get() = "https://image.tmdb.org/t/p/w500/$backdrop"
 }
 
 

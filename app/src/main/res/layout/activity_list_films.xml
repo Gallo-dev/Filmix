@@ -13,7 +13,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundApp"
-    tools:context=".ui.presentation.listFlims.ListaFilmesActivity">
+    tools:context=".ui.presentation.listFlims.ListFilmsActivity">
 
     <TextView
         android:id="@+id/title_list_films"
@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ten_best_films"
-        tools:listitem="@layout/filme_item">
+        tools:listitem="@layout/film_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -151,7 +151,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_default="wrap"
             app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/filme_item">
+            tools:listitem="@layout/film_item">
 
         </androidx.recyclerview.widget.RecyclerView>
 

@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.gallodev.filmix.databinding.ActivityListSearchBinding
 import br.com.gallodev.filmix.ui.presentation.DetailsFilm.DetailsFilmActivity
-import br.com.gallodev.filmix.ui.presentation.listFlims.ListaFilmesActivity
+import br.com.gallodev.filmix.ui.presentation.listFlims.ListFilmsActivity
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -52,7 +52,7 @@ class SearchListActivity : AppCompatActivity() {
 
     private fun configBack() {
         binding.icBack.setOnClickListener {
-            val back = Intent(this, ListaFilmesActivity::class.java)
+            val back = Intent(this, ListFilmsActivity::class.java)
             startActivity(back)
             finish()
         }
@@ -60,7 +60,7 @@ class SearchListActivity : AppCompatActivity() {
 
     private fun configBackHome() {
         binding.icHome.setOnClickListener {
-            val home = Intent(this, ListaFilmesActivity::class.java)
+            val home = Intent(this, ListFilmsActivity::class.java)
             startActivity(home)
             finish()
         }

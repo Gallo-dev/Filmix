@@ -10,18 +10,18 @@ import br.com.gallodev.filmix.R
 import br.com.gallodev.filmix.ui.data.api.Film
 import com.bumptech.glide.Glide
 
-class ListaColunaAdapter(
+class ListColumnAdapter(
 
     private var filmesEmColuna: List<Film>
 
-) : RecyclerView.Adapter<ListaColunaAdapter.FilmesEmColunaViewHolder>() {
+) : RecyclerView.Adapter<ListColumnAdapter.FilmesEmColunaViewHolder>() {
 
     class FilmesEmColunaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val filmesEmColunaImageView: ImageView = itemView.findViewById(R.id.imagem_item_filme)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmesEmColunaViewHolder {
-        val filmeView = LayoutInflater.from(parent.context).inflate(R.layout.filme_item, parent, false)
+        val filmeView = LayoutInflater.from(parent.context).inflate(R.layout.film_item, parent, false)
         return FilmesEmColunaViewHolder(filmeView)
     }
 

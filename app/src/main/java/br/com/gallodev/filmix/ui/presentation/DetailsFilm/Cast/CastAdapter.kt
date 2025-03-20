@@ -1,12 +1,8 @@
-package br.com.gallodev.filmix.ui.presentation.DetailsFilm
+package br.com.gallodev.filmix.ui.presentation.DetailsFilm.Cast
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import br.com.gallodev.filmix.R
 import br.com.gallodev.filmix.databinding.ItemCastBinding
 import br.com.gallodev.filmix.ui.data.api.MovieDetailResponse
 import com.bumptech.glide.Glide
@@ -24,7 +20,7 @@ class CastAdapter(private var castList: List<MovieDetailResponse.CastMember>) :
     override fun onBindViewHolder(holder: CastViewHolder, position: Int) {
         val castManber = castList[position]
 
-        val imageUrl = if (castManber.profilePath.isNullOrEmpty()) {
+        val imageCastUrl = if (castManber.profilePath.isNullOrEmpty()) {
             "https://via.placeholder.com/150" // Se não houver imagem, usa um placeholder
         }else{
             "https://image.tmdb.org/t/p/w500/${castManber.profilePath}"
@@ -34,7 +30,7 @@ class CastAdapter(private var castList: List<MovieDetailResponse.CastMember>) :
         holder.binding.itemCastCharacter.text = castManber.character
 
         Glide.with(holder.itemView.context)
-            .load(imageUrl)
+            .load(imageCastUrl)
             .placeholder(android.R.drawable.ic_menu_gallery)// Se a imagem não estiver disponível, usa um placeholder
             .error(android.R.drawable.ic_delete)// Se houver um erro ao carregar a imagem
             .into(holder.binding.imageCastActor) // Carrega a imagem no ImageView

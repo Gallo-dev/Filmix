@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ListaFilmViewModel : ViewModel() {
+class ListFilmViewModel : ViewModel() {
 
     private val filmService: FilmService by lazy {
         RetrofitClient.filmService
