@@ -3,6 +3,7 @@ package br.com.gallodev.filmix.ui.presentation.DetailsFilm.Cast
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import br.com.gallodev.filmix.R
 import br.com.gallodev.filmix.databinding.ItemCastBinding
 import br.com.gallodev.filmix.ui.data.api.MovieDetailResponse
 import com.bumptech.glide.Glide
@@ -31,8 +32,7 @@ class CastAdapter(private var castList: List<MovieDetailResponse.CastMember>) :
 
         Glide.with(holder.itemView.context)
             .load(imageCastUrl)
-            .placeholder(android.R.drawable.ic_menu_gallery)// Se a imagem não estiver disponível, usa um placeholder
-            .error(android.R.drawable.ic_delete)// Se houver um erro ao carregar a imagem
+            .placeholder(R.drawable.perfil_oculto)// Se a imagem não estiver disponível, usa um placeholder
             .into(holder.binding.imageCastActor) // Carrega a imagem no ImageView
     }
     override fun getItemCount() = castList.size

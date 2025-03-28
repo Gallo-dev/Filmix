@@ -55,15 +55,6 @@
         android:layout_margin="16dp"
         android:imeOptions="actionSearch"/>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/ic_search_movie"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/search_bar"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/search_bar"-->
-<!--        app:layout_constraintTop_toTopOf="@id/search_bar"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:src="@drawable/ic_search"/>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -81,7 +72,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            tools:listitem="@layout/film_item" />
+            tools:listitem="@layout/item_search_film" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -114,7 +105,7 @@
             android:id="@+id/ic_bookMark_search"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_bookmark"
+            android:src="@drawable/ic_bookmark_border"
             android:layout_weight="1"
             android:layout_gravity="center"
             />
@@ -134,7 +125,7 @@
             android:id="@+id/home"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="@string/ic_home"
+            android:text="@string/home"
             android:textColor="@color/white"
             android:layout_weight="1"
             android:gravity="center"
@@ -144,7 +135,7 @@
             android:id="@+id/search"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="@string/ic_search"
+            android:text="@string/search"
             android:textColor="@color/white"
             android:layout_weight="1"
             android:gravity="center" />
@@ -153,7 +144,7 @@
             android:id="@+id/list"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="@string/ic_list"
+            android:text="@string/watch_list"
             android:textColor="@color/white"
             android:layout_weight="1"
             android:gravity="center" />

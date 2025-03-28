@@ -2,22 +2,23 @@ package br.com.gallodev.filmix.ui.presentation.listFlims
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gallodev.filmix.R
 import br.com.gallodev.filmix.databinding.ActivityListFilmsBinding
 import br.com.gallodev.filmix.ui.data.api.Category
+import br.com.gallodev.filmix.ui.data.api.Film
 import br.com.gallodev.filmix.ui.presentation.DetailsFilm.DetailsFilmActivity
 import br.com.gallodev.filmix.ui.presentation.searchFilms.SearchListActivity
+import com.google.android.material.tabs.TabLayoutMediator
 
 class ListFilmsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityListFilmsBinding
     private lateinit var viewModel: ListFilmViewModel
+    private lateinit var pagerAdapter: ListPagerAdapter
 
     private val adapterColumn by lazy {
         ListColumnAdapter(emptyList())
@@ -37,47 +38,38 @@ class ListFilmsActivity : AppCompatActivity() {
         // Configuração do ViewModel
         viewModel = ViewModelProvider(this)[ListFilmViewModel::class.java]
 
+        viewModel.films.observe(this) { films ->
+            setupViewPager(films)
+        }
+
         // Configuração de apresentação da tela de inicial
-        viewModel.buscaFilmePorCategoria(Category.ASSISTIDOS)
+        viewModel.buscaFilmePorCategoria(Category.NOW_PLAYING)
+//        viewModel.buscaFilmePorCategoria(Category.UPCOMING)
 
-        configClickCategory()
+    }
 
+    private fun setupViewPager(films: List<Film>) {
+        pagerAdapter = ListPagerAdapter(this, films)
+        binding.viewPager2Home.adapter = pagerAdapter
+
+        TabLayoutMediator(binding.tabLayoutHome, binding.viewPager2Home) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Now Playing"
+                1 -> tab.text = "UpComing"
+                2 -> tab.text = "Top Rated"
+                3 -> tab.text = "Popular"
+                else -> ""
+            }
+        }.attach()
     }
 
     override fun onResume() {
         super.onResume()
         searchViewModel()
         recyclerViewHorizontal()
-        recyclerViewColumn()
         configGoHome()
         configGoSearch()
         configGoList()
-        //recyclerViewSearch()
-    }
-
-    private fun configClickCategory() {
-        val assistidos = findViewById<TextView>(R.id.now_playing)
-        val lancamoentos = findViewById<TextView>(R.id.update)
-        val melhores = findViewById<TextView>(R.id.the_bests)
-        val populares = findViewById<TextView>(R.id.popular)
-
-        if (assistidos == null || lancamoentos == null || melhores == null || populares == null) {
-            return
-        }
-
-        assistidos.setOnClickListener {
-            viewModel.buscaFilmePorCategoria(Category.ASSISTIDOS)
-        }
-        lancamoentos.setOnClickListener {
-            viewModel.buscaFilmePorCategoria(Category.LANCAMENTO)
-        }
-        melhores.setOnClickListener {
-            viewModel.buscaFilmePorCategoria(Category.MELHORES_AVALIADOS)
-        }
-        populares.setOnClickListener {
-            viewModel.buscaFilmePorCategoria(Category.POPULARES)
-        }
-
     }
 
 
@@ -97,6 +89,7 @@ class ListFilmsActivity : AppCompatActivity() {
                 Intent(this, ListFilmsActivity::class.java) // Navega para a tela de pesquisa
             startActivity(intent)
         }
+
     }
 
     private fun configGoSearch() {
@@ -126,14 +119,4 @@ class ListFilmsActivity : AppCompatActivity() {
             )
     }
 
-    private fun recyclerViewColumn() {
-
-        val recyclerViewColuna = findViewById<RecyclerView>(R.id.recyclerView_coluna)
-        recyclerViewColuna.adapter = adapterColumn // Configurando o adapter
-        val layoutManager =
-            GridLayoutManager(this, 3) // Configurando o GridLayoutManager corretamente
-        recyclerViewColuna.layoutManager = layoutManager
-        //recyclerViewColuna.isNestedScrollingEnabled = true // Habilitando o deslocamento aninhado
-
-    }
 }

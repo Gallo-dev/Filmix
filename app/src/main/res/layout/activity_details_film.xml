@@ -13,6 +13,7 @@
         android:id="@+id/linear_layout_bar_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -50,7 +51,7 @@
         android:id="@+id/constraintLayout_details"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +62,8 @@
         <ImageView
             android:id="@+id/imagem_background"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-           android:scaleType="fitXY"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"
             android:src="@drawable/place_holder"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -178,15 +179,15 @@
             android:id="@+id/tabLayout_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabMode="scrollable"
             android:background="@color/backgroundApp"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Linear_layout_detail"
             app:tabIndicatorColor="@color/white"
             app:tabTextColor="@color/white" />
 
-            <androidx.viewpager2.widget.ViewPager2
+        <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager2_detail"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

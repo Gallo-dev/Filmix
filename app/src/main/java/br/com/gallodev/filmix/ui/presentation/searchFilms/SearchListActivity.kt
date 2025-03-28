@@ -8,6 +8,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.gallodev.filmix.databinding.ActivityListSearchBinding
 import br.com.gallodev.filmix.ui.presentation.DetailsFilm.DetailsFilmActivity
 import br.com.gallodev.filmix.ui.presentation.listFlims.ListFilmsActivity
@@ -25,6 +26,9 @@ class SearchListActivity : AppCompatActivity() {
             val intent = Intent(this, DetailsFilmActivity::class.java)
             intent.putExtra("FILM", film) // Passa o objeto Film como um extra
             intent.putExtra("FILM_ID", film.id) // Passa o ID do filme como um extra
+            intent.putExtra("FILM_TITLE", film.title) // Passa o título do filme como um extra
+            intent.putExtra("FILM_RUNTIME", film.runtime) // Passa a URL da imagem do filme como um extra
+            intent.putExtra("FILM_AVATARPATH", film.avatarPath) // Passa a sinopse do filme como um extra
             startActivity(intent)
             finish()
         }
@@ -40,17 +44,17 @@ class SearchListActivity : AppCompatActivity() {
         // Configuração do ViewModel
         viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
-        configBack()
-        configSearchView()
+        setupBack()
+        setupSearchView()
         recyclerViewSearch()
-        configBackHome()
+        setupBackHome()
 
-        viewModel.films.observe(this) { films ->
-            adapterSearch.updateList(films)
+        viewModel.films.observe(this) { film ->
+            adapterSearch.updateList(film)
         }
     }
 
-    private fun configBack() {
+    private fun setupBack() {
         binding.icBack.setOnClickListener {
             val back = Intent(this, ListFilmsActivity::class.java)
             startActivity(back)
@@ -58,7 +62,7 @@ class SearchListActivity : AppCompatActivity() {
         }
     }
 
-    private fun configBackHome() {
+    private fun setupBackHome() {
         binding.icHome.setOnClickListener {
             val home = Intent(this, ListFilmsActivity::class.java)
             startActivity(home)
@@ -67,7 +71,7 @@ class SearchListActivity : AppCompatActivity() {
     }
 
 
-    private fun configSearchView() {
+    private fun setupSearchView() {
 
         var searchJob: Job? = null
 
@@ -96,7 +100,7 @@ class SearchListActivity : AppCompatActivity() {
     }
 
     private fun recyclerViewSearch() {
-        binding.recyclerViewSearchFilm.layoutManager = GridLayoutManager(this, 3)
+        binding.recyclerViewSearchFilm.layoutManager = LinearLayoutManager(this)
         binding.recyclerViewSearchFilm.adapter = adapterSearch
     }
 }

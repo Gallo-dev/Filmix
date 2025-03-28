@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.gallodev.filmix.databinding.ActivityDetailsFilmBinding
 import br.com.gallodev.filmix.ui.presentation.listFlims.ListFilmsActivity
+import br.com.gallodev.filmix.ui.presentation.searchFilms.SearchListActivity
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -37,20 +38,16 @@ class DetailsFilmActivity : AppCompatActivity() {
     }
     private fun setupObservers(){
         viewModel.movieDetails.observe(this) { movie ->
-            Log.d("DetailsFilmActivity", "Received movie details: $movie")
             binding.textTitleFilm.text = movie.title
             binding.textYear.text = movie.releaseDate
             binding.textTime.text = "${movie.runtime} min"
             binding.textGener.text = movie.genres.joinToString {it.name} // Converte a lista de gêneros em uma string
 
-//            movie.poster?.let {"https://image.tmdb.org/t/p/w500/$it"} ?:"\"https://via.placeholder.com/500x750.png?text=No+Image\""
-//            movie.backdrop?.let {"https://image.tmdb.org/t/p/w500/$it"} ?:"\"https://via.placeholder.com/500x750.png?text=No+Image\""
 
             Glide.with(this)
                 .load(movie.imageBackdropUrl)
                 .placeholder(android.R.drawable.ic_menu_gallery)
                 .into(binding.imagemCapaDetails)
-            Log.d("DetailsFilmActivity", "Image URL: ${movie.imageUrl}")
 
             Glide.with(this)
                 .load(movie.imageUrl)
@@ -74,9 +71,8 @@ class DetailsFilmActivity : AppCompatActivity() {
 
     private fun setupBackButton() {
         binding.icBackDetails.setOnClickListener {
-            val back = Intent(this, ListFilmsActivity::class.java)
+            val back = Intent(this, SearchListActivity::class.java)
             startActivity(back)
-            finish()
         }
     }
 }

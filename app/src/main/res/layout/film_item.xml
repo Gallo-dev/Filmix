@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/backgroundApp"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="20dp"
+    android:background="@color/backgroundApp"
+    android:orientation="vertical"
     android:layout_margin="16dp">
+
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/card_view_item_film"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/backgroundApp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
@@ -21,4 +32,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/text_title_item_film"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/card_view_item_film"
+        app:layout_constraintStart_toStartOf="@id/card_view_item_film"
+        app:layout_constraintTop_toBottomOf="@id/card_view_item_film"
+        tools:text="The Punisher" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

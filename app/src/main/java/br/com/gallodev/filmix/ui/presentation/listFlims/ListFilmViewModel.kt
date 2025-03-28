@@ -29,7 +29,7 @@ class ListFilmViewModel : ViewModel() {
 
     // funcao para buscar filmes por categoria
     fun buscaFilmePorCategoria(category: Category) {
-        Log.i("ListaFilmesViewModel", "Buscando filmes por categoria: ${category.descricao}")
+        Log.i("ListaFilmesViewModel", "Buscando filmes por categoria: ${category.description}")
         val call = filmService.listaFilmesPorCategorias(
             category.path,
             "b893de681882461ea6ffc92edc5a3dfd",

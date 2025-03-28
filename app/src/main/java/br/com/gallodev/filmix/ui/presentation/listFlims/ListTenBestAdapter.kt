@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gallodev.filmix.R
 import br.com.gallodev.filmix.ui.data.api.Film
@@ -18,6 +19,7 @@ class ListTenBestAdapter(
 
     class FilmesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dezMelhoresImageView: ImageView = itemView.findViewById(R.id.imagem_item_filme)
+        val dezMelhoresTextView: TextView = itemView.findViewById(R.id.text_title_item_film)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmesViewHolder {
@@ -28,6 +30,8 @@ class ListTenBestAdapter(
 
     override fun onBindViewHolder(holder: FilmesViewHolder, position: Int) {
         val currentMovie = dezMelhores[position]
+
+        holder.dezMelhoresTextView.text = currentMovie.title
         Glide.with(holder.itemView.context)
             .load(currentMovie.imageUrl)
             .into(holder.dezMelhoresImageView)

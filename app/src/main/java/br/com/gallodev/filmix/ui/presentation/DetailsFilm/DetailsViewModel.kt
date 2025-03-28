@@ -25,14 +25,11 @@ class DetailsViewModel: ViewModel() {
                 response: Response<MovieDetailResponse>
             ) {
                 if (response.isSuccessful){ // Verifica se a resposta é bem-sucedida
-                    Log.d("DetailsViewModel", "Detalhes do filme obtidos com sucesso: ${response.body()}")
                     _movieDetails.value = response.body()
                 }else { // Caso a resposta não seja bem-sucedida, imprime o erro
-                    Log.e("DetailsViewModel", "Erro ao buscar detalhes do filme: ${response.errorBody()?.toString()}")
                 }
             }
             override fun onFailure(call: Call<MovieDetailResponse>, t: Throwable) { // Chamado se houver um erro na chamada
-                Log.e("DetailsViewModel", "Erro ao buscar detalhes do filme", t)
             }
         })
     }

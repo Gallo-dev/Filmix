@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_item_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/grey">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/image_item_search"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@drawable/place_holder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_title_item_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Title"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/image_item_search"
+            app:layout_constraintTop_toTopOf="@id/image_item_search"
+            android:textColor="@color/white"
+            android:layout_marginStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/ic_star_search"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_star_border"
+                app:layout_constraintStart_toEndOf="@id/image_item_search"
+                app:layout_constraintTop_toBottomOf="@id/text_title_item_search"/>
+
+            <TextView
+                android:id="@+id/text_item_like_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="853"
+                android:textSize="16sp"
+                android:layout_marginStart="8sp"
+                android:textColor="@color/orange"
+                app:layout_constraintStart_toEndOf="@id/ic_star_search"
+                app:layout_constraintTop_toTopOf="@id/ic_star_search"
+                app:layout_constraintBottom_toBottomOf="@id/ic_star_search"/>
+
+            <ImageView
+                android:id="@+id/ic_gender_search"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_subtitles"
+                app:layout_constraintStart_toEndOf="@id/image_item_search"
+                app:layout_constraintTop_toBottomOf="@id/ic_star_search"/>
+
+            <TextView
+                android:id="@+id/text_item_search_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Comedia"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginStart="8sp"
+                app:layout_constraintStart_toEndOf="@id/ic_star_search"
+                app:layout_constraintTop_toTopOf="@id/ic_gender_search"
+                app:layout_constraintBottom_toBottomOf="@id/ic_gender_search"/>
+
+            <ImageView
+                android:id="@+id/ic_year"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_calendar"
+                app:layout_constraintStart_toEndOf="@id/image_item_search"
+                app:layout_constraintTop_toBottomOf="@id/ic_gender_search"/>
+
+            <TextView
+                android:id="@+id/text_item_search_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2020/05/23"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginStart="8sp"
+                app:layout_constraintStart_toEndOf="@id/ic_star_search"
+                app:layout_constraintTop_toTopOf="@id/ic_year"
+                app:layout_constraintBottom_toBottomOf="@id/ic_year"/>
+
+            <ImageView
+                android:id="@+id/ic_timer"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_time"
+                app:layout_constraintStart_toEndOf="@id/image_item_search"
+                app:layout_constraintTop_toBottomOf="@id/ic_year"/>
+
+            <TextView
+                android:id="@+id/text_item_search_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="128min"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginStart="8sp"
+                app:layout_constraintStart_toEndOf="@id/ic_star_search"
+                app:layout_constraintTop_toTopOf="@id/ic_timer"
+                app:layout_constraintBottom_toBottomOf="@id/ic_timer"/>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

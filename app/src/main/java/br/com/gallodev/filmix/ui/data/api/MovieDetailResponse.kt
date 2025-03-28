@@ -12,6 +12,7 @@ data class MovieDetailResponse(
     @SerializedName("overview") val overview: String,
     @SerializedName("poster_path") val poster: String,
     @SerializedName("backdrop_path") val backdrop: String,
+    @SerializedName("avatar_path") val avatarPath: String,
     @SerializedName("runtime") val runtime: Int, // Tempo de duração em minutos
     @SerializedName("genres") val genres: List<Genre>, // Gêneros do filme
     @SerializedName("vote_average") val voteAverage: Double?, // Média de votos do filme
@@ -34,7 +35,8 @@ data class MovieDetailResponse(
     @Parcelize
     data class Review(
         @SerializedName("author") val author: String,
-        @SerializedName("content") val content: String
+        @SerializedName("content") val content: String,
+        @SerializedName("avatar_path") val avatarPath: String
     ) : Parcelable
 
     @Parcelize
