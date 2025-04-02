@@ -2,11 +2,14 @@ package br.com.gallodev.filmix.ui.presentation.DetailsFilm
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.gallodev.filmix.databinding.ActivityDetailsFilmBinding
-import br.com.gallodev.filmix.ui.presentation.listFlims.ListFilmsActivity
+import br.com.gallodev.filmix.ui.data.model.FavoriteFilm
+import br.com.gallodev.filmix.ui.presentation.favoriteActivity.FavoriteFilmActivity
+import br.com.gallodev.filmix.ui.presentation.favoriteActivity.FavoriteFilmViewModel
 import br.com.gallodev.filmix.ui.presentation.searchFilms.SearchListActivity
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
@@ -15,7 +18,8 @@ import com.google.android.material.tabs.TabLayoutMediator
 class DetailsFilmActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityDetailsFilmBinding
-    private lateinit var viewModel: DetailsViewModel
+    private lateinit var favoriteViewModel: FavoriteFilmViewModel
+    val viewModel: DetailsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +28,8 @@ class DetailsFilmActivity : AppCompatActivity() {
         supportActionBar?.hide()
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[DetailsViewModel::class.java]
-
+        ViewModelProvider(this)[DetailsViewModel::class.java]
+        favoriteViewModel = ViewModelProvider(this)[FavoriteFilmViewModel::class.java]
 
         val filmId = intent.getIntExtra("FILM_ID", 0)
         if (filmId != 0){
@@ -34,6 +38,7 @@ class DetailsFilmActivity : AppCompatActivity() {
 
         setupObservers()
         setupBackButton()
+        setupFavoriteButton()
 
     }
     private fun setupObservers(){
@@ -41,7 +46,7 @@ class DetailsFilmActivity : AppCompatActivity() {
             binding.textTitleFilm.text = movie.title
             binding.textYear.text = movie.releaseDate
             binding.textTime.text = "${movie.runtime} min"
-            binding.textGener.text = movie.genres.joinToString {it.name} // Converte a lista de gêneros em uma string
+            binding.textGener.text = movie.genres?.joinToString {it.name} // Converte a lista de gêneros em uma string
 
 
             Glide.with(this)
@@ -73,6 +78,20 @@ class DetailsFilmActivity : AppCompatActivity() {
         binding.icBackDetails.setOnClickListener {
             val back = Intent(this, SearchListActivity::class.java)
             startActivity(back)
+        }
+    }
+
+    private fun setupFavoriteButton() {
+        binding.icLikeDetails.setOnClickListener {
+            val movie = viewModel.movieDetails.value
+            if (movie != null){
+                viewModel.favoriteMovie(movie.id)
+                Toast.makeText(this, "Filme adicionado aos favoritos", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Erro ao adicionar o filme aos favoritos", Toast.LENGTH_SHORT).show()
+            }
+            val intent = Intent(this, FavoriteFilmActivity::class.java)
+            startActivity(intent)
         }
     }
 }

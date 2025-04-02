@@ -11,6 +11,7 @@ import br.com.gallodev.filmix.databinding.ActivityListFilmsBinding
 import br.com.gallodev.filmix.ui.data.api.Category
 import br.com.gallodev.filmix.ui.data.api.Film
 import br.com.gallodev.filmix.ui.presentation.DetailsFilm.DetailsFilmActivity
+import br.com.gallodev.filmix.ui.presentation.favoriteActivity.FavoriteFilmActivity
 import br.com.gallodev.filmix.ui.presentation.searchFilms.SearchListActivity
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -69,7 +70,7 @@ class ListFilmsActivity : AppCompatActivity() {
         recyclerViewHorizontal()
         configGoHome()
         configGoSearch()
-        configGoList()
+        setupGoListFavorite()
     }
 
 
@@ -100,10 +101,10 @@ class ListFilmsActivity : AppCompatActivity() {
         }
     }
 
-    private fun configGoList() {
+    private fun setupGoListFavorite() {
         binding.icBookMarkListBorder.setOnClickListener {
             val intent =
-                Intent(this, DetailsFilmActivity::class.java) // Navega para a tela de pesquisa
+                Intent(this, FavoriteFilmActivity::class.java) // Navega para a tela de pesquisa
             startActivity(intent)
         }
     }

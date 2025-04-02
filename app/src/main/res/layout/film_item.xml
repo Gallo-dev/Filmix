@@ -5,13 +5,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/backgroundApp"
-    android:orientation="vertical"
-    android:layout_margin="16dp">
+    android:paddingStart="16dp"
+    android:paddingTop="8dp"
+    android:orientation="vertical">
 
 
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_view_item_film"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,18 +22,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imagem_item_filme"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/o_justiceiro"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imagem_item_filme"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/o_justiceiro"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_number_item_film"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@id/imagem_item_filme"
+                app:layout_constraintEnd_toStartOf="@id/imagem_item_filme"
+                app:layout_constraintBottom_toBottomOf="@id/imagem_item_filme"
+                android:textSize="52sp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
 
     <TextView
         android:id="@+id/text_title_item_film"
@@ -47,5 +67,7 @@
         app:layout_constraintStart_toStartOf="@id/card_view_item_film"
         app:layout_constraintTop_toBottomOf="@id/card_view_item_film"
         tools:text="The Punisher" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

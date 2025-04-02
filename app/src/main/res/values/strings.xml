@@ -11,6 +11,8 @@
     <string name="details">Detail</string>>
     <string name="watch_list">Watch list</string>>
     <string name="descripition">Description of the film</string>>
+    <string name="saved">Saved</string>>
+    <string name="favorite">Favorite</string>>
     <string name="welcome">Welcome</string>>
     <string name="ic_home">Home</string>
     <string name="ic_search">Search</string>

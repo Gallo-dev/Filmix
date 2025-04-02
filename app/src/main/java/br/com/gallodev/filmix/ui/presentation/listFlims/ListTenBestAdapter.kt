@@ -20,6 +20,7 @@ class ListTenBestAdapter(
     class FilmesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dezMelhoresImageView: ImageView = itemView.findViewById(R.id.imagem_item_filme)
         val dezMelhoresTextView: TextView = itemView.findViewById(R.id.text_title_item_film)
+        val textNumberFilmItem: TextView = itemView.findViewById(R.id.text_number_item_film)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmesViewHolder {
@@ -31,6 +32,9 @@ class ListTenBestAdapter(
     override fun onBindViewHolder(holder: FilmesViewHolder, position: Int) {
         val currentMovie = dezMelhores[position]
 
+        Log.i("ListaDezMelhoresAdapter", "Posição: $position - Numero exibido: ${position + 1} ")
+
+        holder.textNumberFilmItem.text = (position + 1).toString()
         holder.dezMelhoresTextView.text = currentMovie.title
         Glide.with(holder.itemView.context)
             .load(currentMovie.imageUrl)

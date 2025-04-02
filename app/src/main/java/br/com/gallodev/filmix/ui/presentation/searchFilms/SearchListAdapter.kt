@@ -9,12 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gallodev.filmix.R
 import br.com.gallodev.filmix.ui.data.api.Film
+import br.com.gallodev.filmix.ui.data.api.MovieDetailResponse
 import com.bumptech.glide.Glide
 
 class SearchListAdapter(
 
     private var searchListFilm: List<Film>,
-    private  val onItemClick: (Film) -> Unit
+    private val onItemClick: (Film) -> Unit
 
 
 ) : RecyclerView.Adapter<SearchListAdapter.SearchListViewHolder>() {
@@ -35,6 +36,7 @@ class SearchListAdapter(
 
     override fun getItemCount(): Int = searchListFilm.size
 
+
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: SearchListViewHolder, position: Int) {
         val currentMovie = searchListFilm[position]
@@ -54,10 +56,12 @@ class SearchListAdapter(
             onItemClick(currentMovie)
         }
     }
+
     fun updateList(newList: List<Film>){
         searchListFilm = newList
         notifyDataSetChanged()
     }
+
 }
 
 

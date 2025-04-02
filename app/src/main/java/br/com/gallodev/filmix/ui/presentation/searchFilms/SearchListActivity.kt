@@ -7,10 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.gallodev.filmix.databinding.ActivityListSearchBinding
 import br.com.gallodev.filmix.ui.presentation.DetailsFilm.DetailsFilmActivity
+import br.com.gallodev.filmix.ui.presentation.favoriteActivity.FavoriteFilmActivity
 import br.com.gallodev.filmix.ui.presentation.listFlims.ListFilmsActivity
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -26,9 +26,6 @@ class SearchListActivity : AppCompatActivity() {
             val intent = Intent(this, DetailsFilmActivity::class.java)
             intent.putExtra("FILM", film) // Passa o objeto Film como um extra
             intent.putExtra("FILM_ID", film.id) // Passa o ID do filme como um extra
-            intent.putExtra("FILM_TITLE", film.title) // Passa o título do filme como um extra
-            intent.putExtra("FILM_RUNTIME", film.runtime) // Passa a URL da imagem do filme como um extra
-            intent.putExtra("FILM_AVATARPATH", film.avatarPath) // Passa a sinopse do filme como um extra
             startActivity(intent)
             finish()
         }
@@ -44,14 +41,15 @@ class SearchListActivity : AppCompatActivity() {
         // Configuração do ViewModel
         viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
+        viewModel.films.observe(this) { film ->
+            adapterSearch.updateList(film)
+        }
+
         setupBack()
         setupSearchView()
         recyclerViewSearch()
         setupBackHome()
-
-        viewModel.films.observe(this) { film ->
-            adapterSearch.updateList(film)
-        }
+        setupGoFavorite()
     }
 
     private fun setupBack() {
@@ -66,6 +64,13 @@ class SearchListActivity : AppCompatActivity() {
         binding.icHome.setOnClickListener {
             val home = Intent(this, ListFilmsActivity::class.java)
             startActivity(home)
+            finish()
+        }
+    }
+    private fun setupGoFavorite() {
+        binding.icBookMarkSearch.setOnClickListener {
+            val favorite = Intent(this, FavoriteFilmActivity::class.java)
+            startActivity(favorite)
             finish()
         }
     }

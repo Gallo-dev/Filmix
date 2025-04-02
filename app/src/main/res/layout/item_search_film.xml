@@ -19,12 +19,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="12dp">
 
         <ImageView
             android:id="@+id/image_item_search"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
+            android:layout_width="110dp"
+            android:layout_height="170dp"
             android:src="@drawable/place_holder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -42,13 +42,13 @@
 
             <ImageView
                 android:id="@+id/ic_star_search"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
                 android:src="@drawable/ic_star_border"
                 app:layout_constraintStart_toEndOf="@id/image_item_search"
-                app:layout_constraintTop_toBottomOf="@id/text_title_item_search"/>
+                app:layout_constraintTop_toBottomOf="@id/text_title_item_search"
+                app:layout_constraintBottom_toBottomOf="@id/ic_gender_search"/>
 
             <TextView
                 android:id="@+id/text_item_like_search"
@@ -74,9 +74,11 @@
 
             <TextView
                 android:id="@+id/text_item_search_gender"
-                android:layout_width="wrap_content"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 tools:text="Comedia"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:layout_marginStart="8sp"

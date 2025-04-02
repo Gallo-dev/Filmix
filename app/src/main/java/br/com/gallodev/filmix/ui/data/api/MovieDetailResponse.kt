@@ -14,7 +14,7 @@ data class MovieDetailResponse(
     @SerializedName("backdrop_path") val backdrop: String,
     @SerializedName("avatar_path") val avatarPath: String,
     @SerializedName("runtime") val runtime: Int, // Tempo de duração em minutos
-    @SerializedName("genres") val genres: List<Genre>, // Gêneros do filme
+    @SerializedName("genres") val genres: List<Genre>? = emptyList(), // Gêneros do filme
     @SerializedName("vote_average") val voteAverage: Double?, // Média de votos do filme
     @SerializedName("release_date") val releaseDate: String, // Data de lançamento do filme
     @SerializedName("reviews") val reviews: ReviewResponse?,

@@ -1,7 +1,11 @@
+import org.jetbrains.kotlin.gradle.model.Kapt
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id ("kotlin-parcelize")
+    id("kotlin-parcelize")
+    kotlin("kapt")
+
 }
 
 android {
@@ -34,7 +38,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
@@ -46,10 +50,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.support.annotations)
+    implementation(libs.androidx.annotation)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation (libs.androidx.appcompat.v161)
+    implementation(libs.androidx.appcompat.v161)
 
     // dependências do lottie animações
     implementation("com.airbnb.android:lottie:6.3.0")
@@ -70,9 +76,14 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 
     // Material Design para tablayout
-    implementation ("com.google.android.material:material:1.8.0")
+    implementation("com.google.android.material:material:1.8.0")
     // dependencia para o viewpager2
-    implementation ("androidx.viewpager2:viewpager2:1.1.0")
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
 
+    // dependencia para o room
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1") // Adiciona o compilador do Room com kapt
+    implementation("androidx.room:room-ktx:2.6.1")
 
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 }
